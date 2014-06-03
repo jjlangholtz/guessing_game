@@ -10,8 +10,9 @@ class Game
   end
 
   def play
+    start
     5.times do
-      guess = guess_number
+      guess = gets.chomp.to_i
       if guess == @number
         @won = true
         break
@@ -24,10 +25,6 @@ class Game
     finish
   end
 
-  def guess_number
-    gets.chomp.to_i
-  end
-
   def finish
     if @won == true
       puts 'You win!'
@@ -37,6 +34,5 @@ class Game
   end
 end
 
-guessing_game = Game.new
-guessing_game.start
-guessing_game.play
+game = Game.new
+game.play
