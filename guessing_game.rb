@@ -1,24 +1,42 @@
-number = rand(100) + 1
-won = false
+class Game
+  def initialize(number = 100)
+    @number = rand(number) + 1
+    @won = false
+  end
 
-puts 'You have five chances to guess my number!'
-print 'Guess a number between 1 and 100 > '
-guess = 0
+  def start
+    puts 'You have five chances to guess my number!'
+    print "Guess a number between 1 and #{@number} > "
+  end
 
-5.times do
-  guess = gets.chomp.to_i
-  if guess == number
-    won = true
-    break
-  elsif guess > number
-    puts 'Too high'
-  else
-    puts 'Too low'
+  def play
+    5.times do
+      guess = guess_number
+      if guess == @number
+        @won = true
+        break
+      elsif guess > @number
+        puts 'Too high'
+      else
+        puts 'Too low'
+      end
+    end
+    finish
+  end
+
+  def guess_number
+    gets.chomp.to_i
+  end
+
+  def finish
+    if @won == true
+      puts 'You win!'
+    else
+      puts "You lose, the number was #{@number}"
+    end
   end
 end
 
-if won == true
-  puts 'You win!'
-else
-  puts "You lose, the number was #{number}"
-end
+guessing_game = Game.new
+guessing_game.start
+guessing_game.play
