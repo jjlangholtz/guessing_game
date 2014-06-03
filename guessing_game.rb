@@ -1,12 +1,12 @@
 class Game
-  def initialize(number = 100)
-    @number = rand(number) + 1
+  def initialize
+    @number = rand(100) + 1
     @won = false
   end
 
   def start
     puts 'You have five chances to guess my number!'
-    print "Guess a number between 1 and #{@number} > "
+    print "Guess a number between 1 and 100 > "
   end
 
   def play
