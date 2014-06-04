@@ -29,11 +29,7 @@ class GuessingGame
   end
 
   def finish
-    if @won == true
-      puts 'You win!'
-    else
-      puts "You lose, the number was #{@number}"
-    end
+    puts @won ? 'You win!' : "You lose, the number was #{@number}"
   end
 end
 
