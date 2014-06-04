@@ -23,7 +23,7 @@ class ReverseGuessingGame
     puts @guess
     @feedback = gets.chomp
     user_input
-    eliminate_possibilities(@guess, @input)
+    eliminate_possibilities @guess, @input
     new_guess
   end
 
@@ -47,7 +47,7 @@ class ReverseGuessingGame
   end
 
   def new_guess
-    total = @possibilities.count
+    total = @possibilities.size
     middle = total / 2
     @guess = @possibilities[middle]
   end
